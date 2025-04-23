@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DELIVERY_DB}
+    username: ${DELIVERY_USER}
+    password: ${DELIVERY_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        concurrency: 1
+        max-concurrency: 10
+    deserialization:
+      trust:
+        all: true  # ⚠️ only for dev/testing
+
+
+
+
+
+
+
+
